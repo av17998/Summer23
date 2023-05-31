@@ -3,10 +3,11 @@
 //  Just get better at problem solving through code
 
 #include <stdio.h>
-#include "class.hpp"
+#include "Header.h"
 
 
 int main(void) {
+
     char user1[32];
     char pass1[32];
     printf("Register a username and password\n");
@@ -15,7 +16,7 @@ int main(void) {
     printf("Enter password: ");
     scanf_s("%s", pass1, 32);
 
-    login login1(user1, pass1);
+    Namespace1::login login1(user1, pass1);
 
     printf("User = %s pass = %s", login1.user, login1.pass);
     return(0);

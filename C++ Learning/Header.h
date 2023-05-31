@@ -1,4 +1,4 @@
-namespace N
+namespace Namespace1
 {
     class login {
     public:
