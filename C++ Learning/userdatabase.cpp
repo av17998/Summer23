@@ -1,14 +1,15 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "userdatabase.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-login::login(int registered) {
-    
+//using namespace database;
+
+userdatabase::userdatabase(int registered) {
+    registered = 0;
 }
 
-void login::registerUser() {
+void userdatabase::registerUser() {
     if (registered == 1) {
         printf("\nUser already registered, try logging in.\n");
         
@@ -22,7 +23,7 @@ void login::registerUser() {
     }
 }
 
-void login::signin() {
+void userdatabase::signin() {
     char* inputusername;
     char* inputpassword;
     inputusername = (char*) malloc(32 * sizeof(char));
@@ -34,17 +35,18 @@ void login::signin() {
 
         do {
             printf("Enter username: ");
-            scanf("%s", inputusername);
+            scanf_s("%s", inputusername, 32);
             printf("Enter password: ");
-            scanf("%s", inputpassword);
+            scanf_s("%s", inputpassword, 32);
 
+            //gets an IDE warning saying "inputusername could be 0", not sure how to fix that
             if (!(strcmp(inputusername, user)) && !(strcmp(inputpassword, pass))) {
                 printf("You have successfully logged in.\nWelcome %s!", user);
             }
             else {
                 printf("The input username or password does not match the registed account, try again.\n");
             }
-
+            //here too
         } while (strcmp(inputusername, user) || strcmp(inputpassword, pass));
     }
 }
